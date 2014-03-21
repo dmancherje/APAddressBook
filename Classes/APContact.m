@@ -51,6 +51,11 @@
         {
             _thumbnail = [self imagePropertyFullSize:NO fromRecord:recordRef];
         }
+        if (fieldMask & APContactFieldID)
+        {
+            ABRecordID recordID = ABRecordGetRecordID(recordRef);
+            _contactID = recordID;
+        }
     }
     return self;
 }
